@@ -69,6 +69,7 @@ class TaskController extends Controller
 
     return view('tasks/detail',[
       'task' => $task,
+      'folder_id' => $id,
     ]);
   }
 
