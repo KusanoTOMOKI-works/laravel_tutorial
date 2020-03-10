@@ -46,20 +46,6 @@
                       Add Task
                       </a>
 
-                      <!-- 検索機能の付与（現在、未完了）
-
-                      Error CODE:
-                      Undefined variable: keyword (View: /var/www/resources/views/tasks/index.blade.php)
-                      -->
-                      <form class="form-inline" action="{{ route('tasks.search',['id'=>$current_folder_id ]) }}" method="POST">
-                        <table>
-                          <tr>
-                            <th><input type="text" name="keyword" value="{{ $keyword }}" class="form-control"></th>
-                            <th><input type="submit" value="Search" class="btn btn-safety"></th>
-                          </tr>
-                        </table>
-                        </form>
-
               </div>
             </div>
 
@@ -80,7 +66,9 @@
 
                         <td>
                           <!-- 詳細ページへの遷移 -->
+                          <a href="{{ route('tasks.detail',['id'=>$task->folder_id,'task_id' =>$task->id ])}}">
                             {{ $task->title}}
+                          </a>
                         </td>
                         <td>
                             <span class="label {{ $task->status_class }}">

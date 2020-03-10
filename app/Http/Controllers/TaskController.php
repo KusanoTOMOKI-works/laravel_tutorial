@@ -60,6 +60,20 @@ class TaskController extends Controller
     ]);
   }
 
+
+// 詳細の表示を行う。
+
+  public function showDetail(int $id,int $task_id){
+
+    $task =Task::find($task_id);
+
+    return view('tasks/detail',[
+      'task' => $task,
+    ]);
+  }
+
+
+
   // Edit function
 
   public function edit(int $id, int $task_id, Request $request)
@@ -80,6 +94,11 @@ class TaskController extends Controller
  }
 
 
+
+
+
+
+
  public function delete(int $id, int $task_id){
     Task::destroy($task_id);
     return redirect()->route('tasks.index',[
@@ -88,21 +107,21 @@ class TaskController extends Controller
   }
 
 
-// 検索機能作成中
-  public function search(int $id,Request $request){
-
-      $keyword = $request->input('keyword');
-
-      $query =Task::query();
-
-      if (!empty($keyword)) {
-        $query->where('title','LIKE','%'.$keyword.'%')->get();
-      }
-
-
-      return redirect()->route('tasks.index',[
-        'id' => $id,
-        'tasks' => $query,
-      ])->with('keyword',$keyword);
-    }
+// // // 検索機能作成中
+//   public function search(int $id,Request $request){
+//
+//       $keyword = $request->input('keyword');
+//
+//       $query =Task::query();
+//
+//       if (!empty($keyword)) {
+//         $query->where('title','LIKE','%'.$keyword.'%')->get();
+//       }
+//
+//
+//       return redirect()->route('tasks.index',[
+//         'id' => $id,
+//         'tasks' => $query,
+//       ])->with('keyword',$keyword);
+//     }
 }
