@@ -24,12 +24,11 @@ class TaskController extends Controller
 
     $keyword =$request->input('keyword');
 
-    $tasks = Task::query();
+
 
     if(!empty($keyword)){
-      $tasks->where('title','like','%'.$keyword.'%');
+      $tasks =Task::where('title','LIKE','%'.$keyword.'%')->get();
     }else{
-
     $tasks = $current_folder->tasks()->get();
     }
     return view('tasks/index',[
