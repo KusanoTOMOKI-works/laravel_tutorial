@@ -25,14 +25,14 @@ class TaskController extends Controller
 
         if (!empty($keyword)) {
             if ($judge_status === '1') {
-                $tasks =Task::where('status', 1)->orWhere('status', 2)->get();
-                $tasks =Task::where('title', 'LIKE', '%'.$keyword.'%')->get();
+                $tasks =$current_folder->tasks()->where('status', 1)->orWhere('status', 2)->get();
+                $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->get();
             } else {
-                $tasks =Task::where('title', 'LIKE', '%'.$keyword.'%')->get();
+                $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->get();
             }
         } else {
             if ($judge_status === '1') {
-                $tasks =Task::where('status', 1)->orWhere('status', 2)->get();
+                $tasks =$current_folder->tasks()->where('status', 1)->orWhere('status', 2)->get();
             } else {
                 $tasks = $current_folder->tasks()->get();
             }
@@ -41,7 +41,7 @@ class TaskController extends Controller
       'folders' => $folders,
       'current_folder_id' => $current_folder->id,
       'tasks'=> $tasks,
-    ])->with('tasks', $tasks)->with('keyword', $keyword)->with('judge_status', $judge_status);
+    ])->with('tasks', $tasks)->with('keyword', $keyword)->with('judge_status',$judge_status);
     }
 
     public function showCreateForm(int $id)
