@@ -15,10 +15,7 @@ class AddUserIdToFolders extends Migration
     {
         Schema::table('folders', function (Blueprint $table) {
           $table->bigInteger('user_id')->unsigned();
-
-
           $table->foreign('user_id')->references('id')->on('users');
-
         });
     }
 
@@ -31,7 +28,7 @@ class AddUserIdToFolders extends Migration
     {
         Schema::table('folders', function (Blueprint $table) {
             $table->dropColumn('user_id');
-            $table->dropForeign('user_id_foreign')
+            $table->dropForeign('user_id_foreign');
         });
     }
 }
