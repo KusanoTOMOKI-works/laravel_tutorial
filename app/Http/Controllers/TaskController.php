@@ -29,7 +29,7 @@ class TaskController extends Controller
     if(!empty($keyword)){
       $tasks =Task::where('title','LIKE','%'.$keyword.'%')->get();
     }else{
-    $tasks = $current_folder->tasks()->get();
+      $tasks = $current_folder->tasks()->get();
     }
     return view('tasks/index',[
       'folders' => $folders,
@@ -111,11 +111,12 @@ class TaskController extends Controller
 
 
   // すでに終了したタスクは表示しない。
-  public function nondisplayDone(int $id, int $task_id)
+  public function nondisplayDone(int $id)
   {
-    $tasks =Task::where('status','LIKE','%'.'Waiting','WIP'.'%')->get();
-    return redirect()->route('tasks,index',[
+    $tasks =Task::where('status',1)->orWhere('status',2)->get();
+    return redirect()->route('tasks.index',[
       'id' =>$id,
+      'tasks'=> $tasks,
     ]);
   }
 
