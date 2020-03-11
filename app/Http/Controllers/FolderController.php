@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateFolder;
+
 use App\Model\Folder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CreateFolder;
 
 class FolderController extends Controller
 {
@@ -15,7 +16,7 @@ class FolderController extends Controller
     }
 
 
-    public function create(Request $request)
+    public function create(CreateFolder $request)
     {
       $folder =new Folder();
       $folder->title = $request->title;
