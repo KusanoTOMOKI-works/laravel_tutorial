@@ -41,7 +41,7 @@ class TaskController extends Controller
       'folders' => $folders,
       'current_folder_id' => $current_folder->id,
       'tasks'=> $tasks,
-    ])->with('tasks', $tasks)->with('keyword', $keyword)->with('judge_status',$judge_status);
+    ])->with('tasks', $tasks)->with('keyword', $keyword)->with('judge_status', $judge_status);
     }
 
     public function showCreateForm(int $id)
