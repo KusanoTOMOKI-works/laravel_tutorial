@@ -50,8 +50,9 @@
                   </th>
                   <th>
                     <form class="form-inline" action="" method="get">
+                      <input type="checkbox" name="judge_status" value="1"> ElseDONE
                       <input type="text" name="keyword" class="form-control" value="{{ $keyword }}" placeholder="keyword">
-                      <input type="submit" value="検索" class="btn btn-info">
+                      <input type="submit" value="submit" class="btn btn-info">
                     </form>
                   </th>
                   <th>
