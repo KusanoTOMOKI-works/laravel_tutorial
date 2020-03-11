@@ -31,6 +31,7 @@ class AddUserIdToFolders extends Migration
     {
         Schema::table('folders', function (Blueprint $table) {
             $table->dropColumn('user_id');
+            $table->dropForeign('user_id_foreign')
         });
     }
 }

@@ -40,11 +40,22 @@
 
           <div class="panel-body">
             <div class="panel-body">
-              <div class="text-right">
-                      <a  href="{{ route('tasks.create', ['id' => $current_folder_id]) }}"
-                          class="btn btn-default btn-sm" >
-                      Add Task
-                      </a>
+              <table class="table">
+                <tr>
+                  <th>
+                    <a  href="{{ route('tasks.create', ['id' => $current_folder_id]) }}"
+                        class="btn btn-default btn-sm" >
+                    Add Task
+                    </a>
+                  </th>
+                  <th>
+                    <form class="" action="index.html" method="post">
+                      <input name="btn-status" type="radio"  value="btn-status">
+                      <input type="submit" name="" value="">
+                    </form>
+                  </th>
+                </tr>
+              </table>
 
               </div>
             </div>

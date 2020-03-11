@@ -109,20 +109,20 @@ class TaskController extends Controller
 
 
 // // // 検索機能作成中
-//   public function search(int $id,Request $request){
-//
-//       $keyword = $request->input('keyword');
-//
-//       $query =Task::query();
-//
-//       if (!empty($keyword)) {
-//         $query->where('title','LIKE','%'.$keyword.'%')->get();
-//       }
-//
-//
-//       return redirect()->route('tasks.index',[
-//         'id' => $id,
-//         'tasks' => $query,
-//       ])->with('keyword',$keyword);
-//     }
+  public function search(int $id,Request $request){
+
+      $keyword = $request->all();
+
+      $query =Task::query();
+
+      if (!empty($keyword)) {
+        $query->where('title','LIKE','%'.$keyword.'%')->get();
+      }
+
+
+      return redirect()->route('tasks.index',[
+        'id' => $id,
+        'tasks' => $query,
+      ])->with('keyword',$keyword);
+    }
 }
