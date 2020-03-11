@@ -9,7 +9,11 @@ class Task extends Model
 {
 
   protected $table = 'tasks';
-
+  protected $dates =[
+    'created_at',
+    'updated_at',
+  ];
+  protected $dateFormat = 'Y/m/d';
 
   //STATUS LABEL
 
@@ -47,12 +51,8 @@ class Task extends Model
       return self::STATUS[$status]['class'];
   }
 
-
-  public function getFormattedDueDateAttribute()
-  {
-    return Carbon::createFromFormat('Y-m-d',$this->attributes['due_date'])->format('Y/m/d');
+  public function getFormattedDueDateAttribute(){
+      return Carbon::parse()->format("Y/m/d");
   }
-
-
 
 }
