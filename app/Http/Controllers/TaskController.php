@@ -102,15 +102,20 @@ class TaskController extends Controller
  }
 
 
-
-
-
-
-
  public function delete(int $id, int $task_id){
     Task::destroy($task_id);
     return redirect()->route('tasks.index',[
       'id' => $id,
+    ]);
+  }
+
+
+  // すでに終了したタスクは表示しない。
+  public function nondisplayDone(int $id, int $task_id)
+  {
+    $tasks =Task::where('status','LIKE','%'.'Waiting','WIP'.'%')->get();
+    return redirect()->route('tasks,index',[
+      'id' =>$id,
     ]);
   }
 

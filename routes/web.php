@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('folders/{id}/tasks/search','TaskController@search')->name('tasks.search');
 
+    Route::get('folders/{id}/tasks/ristrict','TaskController@nondisplayDone')->name('tasks.restrict');
+
 });
 
 Auth::routes();

@@ -12,8 +12,8 @@ class Task extends Model
   protected $dates =[
     'created_at',
     'updated_at',
-  ];
-  protected $dateFormat = 'Y/m/d';
+   ];
+  // protected $dateFormat = 'U';
 
   //STATUS LABEL
 
@@ -29,7 +29,6 @@ class Task extends Model
 
         // STATUS
         $status = $this->attributes['status'];
-
 
         if(!isset(self::STATUS[$status])){
           return '';

@@ -45,7 +45,7 @@
                   <th>
                     <a  href="{{ route('tasks.create', ['id' => $current_folder_id]) }}"
                         class="btn btn-default btn-sm" >
-                    Add Task
+                        Add Task
                     </a>
                   </th>
                   <th>
@@ -53,6 +53,12 @@
                       <input type="text" name="keyword" class="form-control" value="{{ $keyword }}" placeholder="keyword">
                       <input type="submit" value="検索" class="btn btn-info">
                     </form>
+                  </th>
+                  <th>
+                    <a  href="{{ route('tasks.restrict',['id' => $current_folder_id])}}"
+                        class="btn btn-default btn-sm">
+                        DONE
+                    </a>
                   </th>
                 </tr>
               </table>
