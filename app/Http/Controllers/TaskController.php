@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-  public function index(int $id)
+  public function index(int $id,Request $request)
   {
     $folders =Auth::user()->folders()->get();
 
@@ -22,13 +22,21 @@ class TaskController extends Controller
 
     $current_folder = Folder::find($id);
 
-    $tasks = $current_folder->tasks()->get();
+    $keyword =$request->input('keyword');
 
+    $tasks = Task::query();
+
+    if(!empty($keyword)){
+      $tasks->where('title','like','%'.$keyword.'%');
+    }else{
+
+    $tasks = $current_folder->tasks()->get();
+    }
     return view('tasks/index',[
       'folders' => $folders,
       'current_folder_id' => $current_folder->id,
       'tasks'=> $tasks,
-    ]);
+    ])->with('tasks',$tasks)->with('keyword',$keyword);
   }
 
   public function showCreateForm(int $id){

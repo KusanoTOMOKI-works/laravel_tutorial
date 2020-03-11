@@ -49,9 +49,9 @@
                     </a>
                   </th>
                   <th>
-                    <form class="" action="index.html" method="post">
-                      <input name="btn-status" type="radio"  value="btn-status">
-                      <input type="submit" name="" value="">
+                    <form class="form-inline" action="" method="get">
+                      <input type="text" name="keyword" class="form-control" value="{{ $keyword }}" placeholder="keyword">
+                      <input type="submit" value="検索" class="btn btn-info">
                     </form>
                   </th>
                 </tr>
