@@ -96,13 +96,16 @@
                     <a href=" {{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id])}}"
                        class="btn btn-info btn-sm">
                       Edit
-                    </a></td>
+                    </a>
+                    </td>
 
                     <td>
-                      <a  href="{{ route('tasks.destoroy',['id'=> $task->folder_id, 'task_id' => $task->id])}}"
-                          class="btn btn-danger btn-sm">
-                      Delete
-                      </a></td>
+                      <form action="{{ route('tasks.destroy',['id'=> $task->folder_id, 'task_id' => $task->id])}}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <input type="submit" value="delete" class="btn btn-danger btn-sm">
+                      </form>
+                    </td>
                   </tr>
                   @endforeach
 
