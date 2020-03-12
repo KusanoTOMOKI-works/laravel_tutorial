@@ -55,12 +55,6 @@
                       <input type="submit" value="submit" class="btn btn-info">
                     </form>
                   </th>
-                  <th>
-                    <a  href="{{ route('tasks.restrict',['id' => $current_folder_id])}}"
-                        class="btn btn-default btn-sm">
-                        DONE
-                    </a>
-                  </th>
                 </tr>
               </table>
 

@@ -117,36 +117,4 @@ class TaskController extends Controller
       'id' => $id,
     ]);
     }
-
-
-    // すでに終了したタスクは表示しない。
-    public function nondisplayDone(int $id)
-    {
-        $tasks =Task::where('status', 1)->orWhere('status', 2)->get();
-
-        return redirect()->route('tasks.index', [
-      'id' => $id,
-
-      'tasks'=> $tasks,
-    ]);
-    }
-
-
-    // // // 検索機能作成中
-    public function search(int $id, Request $request)
-    {
-        $keyword = $request->all();
-
-        $query =Task::query();
-
-        if (!empty($keyword)) {
-            $query->where('title', 'LIKE', '%'.$keyword.'%')->get();
-        }
-
-
-        return redirect()->route('tasks.index', [
-        'id' => $id,
-        'tasks' => $query,
-      ])->with('keyword', $keyword);
-    }
-}
+  }
