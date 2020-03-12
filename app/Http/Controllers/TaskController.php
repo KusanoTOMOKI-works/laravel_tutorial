@@ -41,7 +41,7 @@ class TaskController extends Controller
       'folders' => $folders,
       'current_folder_id' => $current_folder->id,
       'tasks'=> $tasks,
-    ])->with('tasks', $tasks)->with('keyword', $keyword)->with('judge_status',$judge_status);
+    ])->with('tasks', $tasks)->with('keyword', $keyword)->with('judge_status', $judge_status);
     }
 
     public function showCreateForm(int $id)
@@ -94,16 +94,13 @@ class TaskController extends Controller
 
     public function edit(int $id, int $task_id, Request $request)
     {
-        // 1
         $task = Task::find($task_id);
 
-        // 2
         $task->title = $request->title;
         $task->status = $request->status;
         $task->due_date = $request->due_date;
         $task->save();
 
-        // 3
         return redirect()->route('tasks.index', [
          'id' => $task->folder_id,
      ]);
@@ -117,4 +114,4 @@ class TaskController extends Controller
       'id' => $id,
     ]);
     }
-  }
+}
