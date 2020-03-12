@@ -22,12 +22,16 @@ class TaskController extends Controller
         $keyword =$request->input('keyword');
         $judge_status =$request->input('judge_status');
 
+        $keyword = str_replace("%","\%",$keyword);
+        $keyword = str_replace("_","\_",$keyword);
+
+
 
         if (!empty($keyword)) {
             if ($judge_status === '1') {
                 $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->where('status', 1)->orWhere('status', 2)->get();
             } else {
-                $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%',)->get();
+                $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->get();
             }
         } else {
             if ($judge_status === '1') {
