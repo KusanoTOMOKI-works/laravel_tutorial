@@ -72,24 +72,24 @@
               </thead>
 
               <tbody>
-
                 @foreach($tasks as $task)
                   <tr>
+                    <td>
+                      <!-- 詳細ページへの遷移 -->
+                      <a href="{{ route('tasks.detail',['id'=>$task->folder_id,'task_id' =>$task->id ])}}">
+                        {{ $task->title}}
+                      </a>
+                    </td>
 
-                        <td>
-                          <!-- 詳細ページへの遷移 -->
-                          <a href="{{ route('tasks.detail',['id'=>$task->folder_id,'task_id' =>$task->id ])}}">
-                            {{ $task->title}}
-                          </a>
-                        </td>
-                        <td>
-                            <span class="label {{ $task->status_class }}">
-                              {{ $task->status_label }}
-                            </span>
-                        </td>
-                        <td>
-                            {{ $task->formatted_due_date}}
-                        </td>
+                    <td>
+                      <span class="label {{ $task->status_class }}">
+                        {{ $task->status_label }}
+                      </span>
+                    </td>
+
+                    <td>
+                        {{ $task->formatted_due_date}}
+                    </td>
                     </div>
 
                     <td>
@@ -101,14 +101,13 @@
 
                     <td>
                       <form action="{{ route('tasks.destroy',['id'=> $task->folder_id, 'task_id' => $task->id])}}" method="POST">
-                          @csrf
-                          @method('DELETE')
-                          <input type="submit" value="delete" class="btn btn-danger btn-sm">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="delete" class="btn btn-danger btn-sm">
                       </form>
                     </td>
                   </tr>
                   @endforeach
-
               </tbody>
             </table>
 
