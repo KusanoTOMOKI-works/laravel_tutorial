@@ -1,6 +1,4 @@
 @extends('layout')
-
-
 @section('content')
   <div class="container">
     <div class="row">
@@ -13,9 +11,7 @@
             <div class="text-center">
               <a  href="{{ route('folders.create') }}"
                   class = "btn btn-primary">
-
-                  Folder's LIST
-
+                  フォルダーを作成する。
               </a>
             </div>
           </div>
