@@ -99,7 +99,7 @@
                     </a></td>
 
                     <td>
-                      <a  href="{{ route('tasks.delete',['id'=> $task->folder_id, 'task_id' => $task->id])}}"
+                      <a  href="{{ route('tasks.destoroy',['id'=> $task->folder_id, 'task_id' => $task->id])}}"
                           class="btn btn-danger btn-sm">
                       Delete
                       </a></td>

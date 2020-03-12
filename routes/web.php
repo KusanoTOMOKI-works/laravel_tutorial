@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     // 詳細確認画面への遷移
     Route::get('/folders/{id}/tasks/{task_id}/detail', 'TaskController@showDetail')->name('tasks.detail');
     // 削除機能
-    Route::delete('/folders/{id}/tasks/{task_id}/delete', 'TaskController@delete')->name('tasks.delete');
+    Route::delete('/folders/{id}/tasks/{task_id}/delete', 'TaskController@delete')->name('tasks.destroy');
 });
 
 Auth::routes();
