@@ -25,10 +25,9 @@ class TaskController extends Controller
 
         if (!empty($keyword)) {
             if ($judge_status === '1') {
-                $tasks =$current_folder->tasks()->where('status', 1)->orWhere('status', 2)->get();
-                $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->get();
+                $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->where('status', 1)->orWhere('status', 2)->get();
             } else {
-                $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->get();
+                $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%',)->get();
             }
         } else {
             if ($judge_status === '1') {
@@ -37,7 +36,7 @@ class TaskController extends Controller
                 $tasks = $current_folder->tasks()->get();
             }
         }
-        return view('tasks/index')->with('folders',$folders)->with('current_folder_id',$current_folder->id)->with('tasks', $tasks)->with('keyword', $keyword)->with('judge_status', $judge_status);
+        return view('tasks/index')->with('folders', $folders)->with('current_folder_id', $current_folder->id)->with('tasks', $tasks)->with('keyword', $keyword)->with('judge_status', $judge_status);
     }
 
     public function showCreateForm(int $id)
