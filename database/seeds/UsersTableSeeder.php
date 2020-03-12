@@ -1,10 +1,7 @@
 <?php
-
-
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,7 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('users')->insert([
+        DB::table('users')->insert([
         'name' =>         'test',
         'email' =>        'dummy@email.com',
         'password' =>     bcrypt('test1234'),
@@ -24,6 +21,3 @@ class UsersTableSeeder extends Seeder
       ]);
     }
 }
-
-
-// bcrypt() : 暗号化
