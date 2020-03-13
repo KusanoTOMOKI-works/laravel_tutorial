@@ -32,8 +32,8 @@ class TaskController extends Controller
                   ->where(function($query){
                       $query->where('status', 1)
                             ->orWhere('status', 2);
-                  })
-                  ->get();
+                })
+                ->get();
             }
             else {
                 $tasks = $current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->get();
