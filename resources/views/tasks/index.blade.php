@@ -75,7 +75,7 @@
                 @foreach($tasks as $task)
                   <tr>
                     <td>
-                      <a href="{{ route('tasks.detail', [ 'id' => $task->folder_id, 'task_id' => $task->id ])}}">
+                      <a href="{{ route('tasks.detail', [ 'id' => $task->folder_id, 'task_id' => $task->id]) }}">
                         {{ $task->title }}
                       </a>
                     </td>
@@ -106,7 +106,7 @@
                       </form>
                     </td>
                   </tr>
-                  @endforeach
+                @endforeach
               </tbody>
             </table>
 
