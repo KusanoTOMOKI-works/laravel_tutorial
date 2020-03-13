@@ -50,7 +50,7 @@ class TaskController extends Controller
     public function showCreateForm(int $id)
     {
         return view('tasks/create', [
-          'folder_id' => $id,
+            'folder_id' => $id,
         ]);
     }
 
@@ -74,7 +74,7 @@ class TaskController extends Controller
         $task = Task::find($task_id);
 
         return view('tasks/edit', [
-          'task' => $task,
+            'task' => $task,
         ]);
     }
 
@@ -83,8 +83,8 @@ class TaskController extends Controller
         $task = Task::find($task_id);
 
         return view('tasks/detail', [
-          'task'      => $task,
-          'folder_id' => $id,
+            'task'      => $task,
+            'folder_id' => $id,
         ]);
     }
 
@@ -98,7 +98,7 @@ class TaskController extends Controller
         $task->save();
 
         return redirect()->route('tasks.index', [
-         'id' => $task->folder_id,
+            'id' => $task->folder_id,
        ]);
     }
 
@@ -107,7 +107,7 @@ class TaskController extends Controller
     {
         Task::destroy($task_id);
         return redirect()->route('tasks.index', [
-          'id' => $id,
+            'id' => $id,
         ]);
     }
 }
