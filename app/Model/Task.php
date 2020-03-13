@@ -11,12 +11,10 @@ class Task extends Model
     //STATUS LABEL
 
     const STATUS =[
-      1 => ['label' => 'Waiting' ,'class'=>'label-danger'],
-      2 => ['label' => 'WIP' ,'class'=>'label-info'],
-      3 => ['label' => 'DONE' ,'class'=>''],
+      1 => ['label' => 'Waiting', 'class' => 'label-danger'],
+      2 => ['label' => 'WIP',     'class' => 'label-info'],
+      3 => ['label' => 'DONE',    'class' => ''],
   ];
-
-
 
     public function getStatusLabelAttribute()
     {
@@ -27,7 +25,6 @@ class Task extends Model
         if (!isset(self::STATUS[$status])) {
             return '';
         }
-
         return self::STATUS[$status]['label'];
     }
 
@@ -36,12 +33,9 @@ class Task extends Model
 
       // STATUS
         $status = $this->attributes['status'];
-
-
         if (!isset(self::STATUS[$status])) {
             return '';
         }
-
         return self::STATUS[$status]['class'];
     }
 

@@ -17,7 +17,7 @@ class FolderTableSeeder extends Seeder
     {
       $user = DB::table('users')->first();
 
-      $titles = ['private','work','trip'];
+      $titles = ['private', 'work', 'trip'];
 
       foreach ($titles as $title){
         DB::table('folders')->insert([

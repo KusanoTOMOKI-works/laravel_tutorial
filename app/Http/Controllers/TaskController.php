@@ -19,13 +19,11 @@ class TaskController extends Controller
 
         $current_folder = Folder::find($id);
 
-        $keyword =$request->input('keyword');
-        $judge_status =$request->input('judge_status');
+        $keyword = $request->input('keyword');
+        $judge_status = $request->input('judge_status');
 
         $keyword = str_replace("%", "\%", $keyword);
         $keyword = str_replace("_", "\_", $keyword);
-
-
 
         if (!empty($keyword)) {
             if ($judge_status === '1') {
@@ -79,10 +77,10 @@ class TaskController extends Controller
 
     public function showDetail(int $id, int $task_id)
     {
-        $task =Task::find($task_id);
+        $task = Task::find($task_id);
 
         return view('tasks/detail', [
-          'task' => $task,
+          'task'      => $task,
           'folder_id' => $id,
         ]);
     }
@@ -102,7 +100,7 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index', [
          'id' => $task->folder_id,
-     ]);
+       ]);
     }
 
 
@@ -110,7 +108,7 @@ class TaskController extends Controller
     {
         Task::destroy($task_id);
         return redirect()->route('tasks.index', [
-      'id' => $id,
-    ]);
+          'id' => $id,
+        ]);
     }
 }

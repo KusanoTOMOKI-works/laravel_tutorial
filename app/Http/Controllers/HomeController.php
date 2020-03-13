@@ -9,8 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $user =Auth::user();
-        $folder =$user->folders()->first();
+        $user = Auth::user();
+        $folder = $user->folders()->first();
 
         if (is_null($folder)) {
             return view('home');
