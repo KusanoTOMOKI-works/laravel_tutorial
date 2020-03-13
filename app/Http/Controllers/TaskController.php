@@ -29,13 +29,12 @@ class TaskController extends Controller
             if ($judge_status === '1') {
                 $tasks = $current_folder->tasks()
                   ->where('title', 'LIKE', '%'.$keyword.'%')
-                  ->where(function($query){
+                  ->where(function ($query) {
                       $query->where('status', 1)
                             ->orWhere('status', 2);
-                })
+                  })
                 ->get();
-            }
-            else {
+            } else {
                 $tasks = $current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->get();
             }
         } else {
@@ -52,7 +51,7 @@ class TaskController extends Controller
             'keyword' => $keyword,
             'judge_status' => $judge_status,
           ]);
-      }
+    }
 
     public function showCreateForm(int $id)
     {
