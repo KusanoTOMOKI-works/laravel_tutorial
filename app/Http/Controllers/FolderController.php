@@ -11,19 +11,19 @@ class FolderController extends Controller
 
     public function showCreateForm()
     {
-      return view('folders/create');
+        return view('folders/create');
     }
 
     public function create(CreateFolder $request)
     {
-      $folder = new Folder();
-      $folder->title = $request->title;
+        $folder = new Folder();
+        $folder->title = $request->title;
 
-      Auth::user()->folders()->save($folder);
+        Auth::user()->folders()->save($folder);
 
-      return redirect()->route('tasks.index',[
-        'id' => $folder->id,
-      ]);
+        return redirect()->route('tasks.index', [
+            'id' => $folder->id,
+        ]);
     }
-    
+
 }
