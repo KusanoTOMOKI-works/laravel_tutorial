@@ -7,14 +7,14 @@ use App\Model\Task;
 
 class EditTask extends FormRequest
 {
-     public function rules()
+    public function rules()
     {
-      $rule = parent::rules();
+        $rule = parent::rules();
 
-      $status_rule = Rule::in(array_keys(Task::STATUS));
+        $status_rule = Rule::in(array_keys(Task::STATUS));
 
-      return $rule +[
-      'status' => 'required|' .$status_rule,
-     ];
+        return $rule + [
+            'status' => 'required|' .$status_rule,
+        ];
     }
 }
