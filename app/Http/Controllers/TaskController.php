@@ -72,9 +72,6 @@ class TaskController extends Controller
         ]);
     }
 
-
-    // 詳細の表示を行う。
-
     public function showDetail(int $id, int $task_id)
     {
         $task = Task::find($task_id);
@@ -84,10 +81,6 @@ class TaskController extends Controller
           'folder_id' => $id,
         ]);
     }
-
-
-
-    // Edit function
 
     public function edit(int $id, int $task_id, Request $request)
     {
