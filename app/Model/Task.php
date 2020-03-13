@@ -11,10 +11,10 @@ class Task extends Model
     //STATUS LABEL
 
     const STATUS =[
-      1 => ['label' => 'Waiting', 'class' => 'label-danger'],
-      2 => ['label' => 'WIP',     'class' => 'label-info'],
-      3 => ['label' => 'DONE',    'class' => ''],
-  ];
+        1 => ['label' => 'Waiting', 'class' => 'label-danger'],
+        2 => ['label' => 'WIP',     'class' => 'label-info'],
+        3 => ['label' => 'DONE',    'class' => ''],
+    ];
 
     public function getStatusLabelAttribute()
     {
