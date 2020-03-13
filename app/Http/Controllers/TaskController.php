@@ -38,8 +38,14 @@ class TaskController extends Controller
                 $tasks = $current_folder->tasks()->get();
             }
         }
-        return view('tasks/index')->with('folders', $folders)->with('current_folder_id', $current_folder->id)->with('tasks', $tasks)->with('keyword', $keyword)->with('judge_status', $judge_status);
-    }
+        return view('tasks/index',[
+            'folders' => $folders,
+            'current_folder_id' => $current_folder->id,
+            'tasks' => $tasks,
+            'keyword' => $keyword,
+            'judge_status' => $judge_status,
+          ])
+      }
 
     public function showCreateForm(int $id)
     {
@@ -59,7 +65,7 @@ class TaskController extends Controller
         $current_folder->tasks()->save($task);
 
         return redirect()->route('tasks.index', [
-          'id' => $current_folder->id,
+            'id' => $current_folder->id,
         ]);
     }
 
