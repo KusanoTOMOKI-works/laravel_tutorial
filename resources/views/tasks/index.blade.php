@@ -75,9 +75,8 @@
                 @foreach($tasks as $task)
                   <tr>
                     <td>
-                      <!-- 詳細ページへの遷移 -->
-                      <a href="{{ route('tasks.detail',['id'=>$task->folder_id,'task_id' =>$task->id ])}}">
-                        {{ $task->title}}
+                      <a href="{{ route('tasks.detail', [ 'id' => $task->folder_id, 'task_id' => $task->id ])}}">
+                        {{ $task->title }}
                       </a>
                     </td>
 
@@ -88,19 +87,19 @@
                     </td>
 
                     <td>
-                        {{ $task->formatted_due_date}}
+                        {{ $task->formatted_due_date }}
                     </td>
                     </div>
 
                     <td>
-                    <a href=" {{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id])}}"
+                    <a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id ]) }}"
                        class="btn btn-info btn-sm">
                       Edit
                     </a>
                     </td>
 
                     <td>
-                      <form action="{{ route('tasks.destroy',['id'=> $task->folder_id, 'task_id' => $task->id])}}" method="POST">
+                      <form action="{{ route('tasks.destroy', ['id' => $task->folder_id, 'task_id' => $task->id ]) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <input type="submit" value="delete" class="btn btn-danger btn-sm">

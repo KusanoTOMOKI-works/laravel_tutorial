@@ -20,7 +20,7 @@
               </tr>
               <tr>
                 <td>DueDATE</td>
-                <td>{{$task->formatted_due_date }}</td>
+                <td>{{ $task->formatted_due_date }}</td>
               </tr>
               <tr>
                 <td>Created date</td>
