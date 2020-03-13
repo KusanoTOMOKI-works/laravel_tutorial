@@ -22,20 +22,20 @@ class TaskController extends Controller
         $keyword =$request->input('keyword');
         $judge_status =$request->input('judge_status');
 
-        $keyword = str_replace("%","\%",$keyword);
-        $keyword = str_replace("_","\_",$keyword);
+        $keyword = str_replace("%", "\%", $keyword);
+        $keyword = str_replace("_", "\_", $keyword);
 
 
 
         if (!empty($keyword)) {
             if ($judge_status === '1') {
-                $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->where('status', 1)->orWhere('status', 2)->get();
+                $tasks = $current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->where('status', 1)->orWhere('status', 2)->get();
             } else {
-                $tasks =$current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->get();
+                $tasks = $current_folder->tasks()->where('title', 'LIKE', '%'.$keyword.'%')->get();
             }
         } else {
             if ($judge_status === '1') {
-                $tasks =$current_folder->tasks()->where('status', 1)->orWhere('status', 2)->get();
+                $tasks = $current_folder->tasks()->where('status', 1)->orWhere('status', 2)->get();
             } else {
                 $tasks = $current_folder->tasks()->get();
             }
@@ -46,8 +46,8 @@ class TaskController extends Controller
     public function showCreateForm(int $id)
     {
         return view('tasks/create', [
-      'folder_id' => $id
-    ]);
+          'folder_id' => $id,
+        ]);
     }
 
     public function create(int $id, CreateTask $request)
@@ -62,7 +62,7 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index', [
           'id' => $current_folder->id,
-      ]);
+        ]);
     }
 
     public function showEditForm(int $id, int $task_id)
@@ -70,8 +70,8 @@ class TaskController extends Controller
         $task = Task::find($task_id);
 
         return view('tasks/edit', [
-        'task' => $task,
-    ]);
+          'task' => $task,
+        ]);
     }
 
 
@@ -82,9 +82,9 @@ class TaskController extends Controller
         $task =Task::find($task_id);
 
         return view('tasks/detail', [
-      'task' => $task,
-      'folder_id' => $id,
-    ]);
+          'task' => $task,
+          'folder_id' => $id,
+        ]);
     }
 
 

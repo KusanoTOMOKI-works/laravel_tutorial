@@ -22,9 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/folders/{id}/tasks/create', 'TaskController@create');
     Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');
     Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');
-    // 詳細確認画面への遷移
     Route::get('/folders/{id}/tasks/{task_id}/detail', 'TaskController@showDetail')->name('tasks.detail');
-    // 削除機能
     Route::delete('/folders/{id}/tasks/{task_id}/delete', 'TaskController@delete')->name('tasks.destroy');
 });
 
